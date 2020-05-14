@@ -308,10 +308,18 @@ console.log(getLastCarInfo());
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears() {
-  /* code here */
+function getModelYears(arr) {
+  let years = [];
+  for (let i = 0; i < inventory.length; i++){
+    if (years.includes(inventory[i].car_year) == false){
+      years.push(arr[i].car_year);
+    }
+  }
+  return years;
 }
 
+years = getModelYears(inventory).sort();
+console.log(years);
 /**
  * ### Challenge `getCarInfoById`
  *  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
@@ -344,9 +352,16 @@ function getCarInfoById(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(arr,num) {
+  let newArr = [];
+  for(let i = 0; i< arr.length; i++){
+    if(arr[i].car_year <= num){
+      newArr.push(arr[i])
+    }
+  }
+  return newArr;
 }
+console.log(getOlderCars(inventory, 1985));
 
 /**
  * ### Challenge `getGermanCars`
@@ -361,8 +376,15 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(arr) {
+  let newArr=[];
+  for(let i=0;i< arr.length; i++){
+    if(arr[i].car_make === 'Audi' || arr[i].car_make === 'Mercedes-Benz' ||
+     arr[i].car_make === 'Volkswagen' || arr[i].car_make === 'BMW') {
+       newArr.push(arr[i]);
+     }
+  }
+  return newArr;
 }
 
 /**
@@ -378,7 +400,16 @@ function getGermanCars(/* code here */) {
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odometer) {
+  let obj = {
+    'odometer': odometer,
+    'drive': function(distance) {
+      obj.odometer += distance;
+      return obj.odometer;
+    }
+  }
+  return obj;
 }
+console.log(carMaker(20));
+console.log(carMaker(20).drive(10));
 
