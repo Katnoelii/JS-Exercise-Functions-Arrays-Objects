@@ -28,7 +28,7 @@ function addNumbers(num1, num2) {
  * ### Challenge `sayGoodbye`
  * 
  * @instructions
- * This function should take an a name as an argument,
+ * This function should take a name as an argument,
  * and return a string that says 'Goodbye, {name}. Have a great day.'
  * 
  * For example, if we invoke `sayGoodbye`
@@ -36,10 +36,11 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
-  /* code here */
+function sayGoodbye(name) {
+  let goodbye = 'Goodbye, '+ name +'! Have a great day.';
+  console.log(goodbye);
 }
-
+sayGoodbye('Wendy');
 /**
  * ### Challenge `temperatureCtoF`
  * 
